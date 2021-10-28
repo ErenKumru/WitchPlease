@@ -2,22 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionMaker : MonoBehaviour
+    //Invoker/Sender class.
+public class PotionMaker
 {
-    private void Awake()
+    //Don’t create command objects on your own, but rather get them from the client code.
+
+    /*
+     * Parameters for Commands
+     * Queue/List/Stack for neccessary elements
+     */
+
+    //public List<ICommand> commands = new List<ICommand>();
+    public ICommand command;
+
+    //setCommand(Command) -> subject to change
+    public void SetCommand(ICommand command)
     {
-        Debug.Log("Awake");
+        Debug.Log("set command");
+        this.command = command;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    //executeCommand
+    public void ExecuteCommand()
     {
-        Debug.Log("Start");
+        if (command is ICommand && command != null)
+        {
+            Debug.Log("ExecuteCommand of PM");
+            command.Execute();
+        }
+            
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("Update");
-    }
+    //undoCommand
+    //redoCommand
 }
