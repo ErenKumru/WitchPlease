@@ -5,34 +5,47 @@ using UnityEngine;
     //Invoker/Sender class.
 public class PotionMaker
 {
-    //Don’t create command objects on your own, but rather get them from the client code.
+    //Donï¿½t create command objects on your own, but rather get them from the client code.
 
     /*
      * Parameters for Commands
      * Queue/List/Stack for neccessary elements
      */
 
-    //public List<ICommand> commands = new List<ICommand>();
-    public ICommand command;
+    private Queue<ICommand> commands = new Queue<ICommand>(); 
+	private Stack<ICommand> undo = new Stack<ICommand>();
+	private Stack<ICommand> redo = new Stack<ICommand>();
+
 
     //setCommand(Command) -> subject to change
     public void SetCommand(ICommand command)
     {
-        Debug.Log("set command");
-        this.command = command;
+        commands.Enqueue(command);
     }
 
-    //executeCommand
+    // execute commands
     public void ExecuteCommand()
     {
-        if (command is ICommand && command != null)
-        {
-            Debug.Log("ExecuteCommand of PM");
-            command.Execute();
-        }
-            
+        while (commands.Count > 0)
+		{
+			ICommand currentCommand = commands.Dequeue();
+    		currentCommand.execute();
+			undo.Push(currentCommand);
+		}       
     }
-
-    //undoCommand
-    //redoCommand
+	
+	// undo command
+    public void Undo()
+    {      
+        ICommand currentCommand = undo.Pop();
+		currentCommand.undo();
+		redo.Push(currentCommand);    
+    }
+    
+	// redo command
+    public void Redo()
+    {      
+        ICommand currentCommand = redo.Pop();
+		currentCommand.redo();
+    }
 }
