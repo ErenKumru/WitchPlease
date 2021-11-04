@@ -29,7 +29,7 @@ public class PotionMaker
         while (commands.Count > 0)
 		{
 			ICommand currentCommand = commands.Dequeue();
-    		currentCommand.execute();
+    		currentCommand.Execute();
 			undo.Push(currentCommand);
 		}       
     }
@@ -38,7 +38,7 @@ public class PotionMaker
     public void Undo()
     {      
         ICommand currentCommand = undo.Pop();
-		currentCommand.undo();
+		currentCommand.Undo();
 		redo.Push(currentCommand);    
     }
     
@@ -46,6 +46,6 @@ public class PotionMaker
     public void Redo()
     {      
         ICommand currentCommand = redo.Pop();
-		currentCommand.redo();
+		currentCommand.Redo();
     }
 }
