@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
     //Concrete Complex Command class
-public class LiquidCommand : ICommand
+public class PourCommand : ICommand
 {
     /*
      * Reciever
@@ -14,7 +14,7 @@ public class LiquidCommand : ICommand
     private string methodName;
 
     //Constructor(Reciever, Parameter(commandName), Parameter(Cauldron))
-    public LiquidCommand(Liquid liquid, string methodName /*Cauldron might be added here*/)
+    public PourCommand(Liquid liquid, string methodName /*Cauldron might be added here*/)
     {
         this.liquid = liquid;
         this.methodName = methodName;
@@ -23,7 +23,7 @@ public class LiquidCommand : ICommand
     //methods
     public void Execute()
     {
-        Debug.Log("Execute of LC");
+        Debug.Log("Execute of PourCommand");
         liquid.Pour(methodName);
     }
 
