@@ -6,6 +6,7 @@ public class FeedFireCommand : ICommand
 {
     private Fire fire;
     private string methodName;
+    private Fire.FireState previousFireState;
 
     public FeedFireCommand(Fire fire, string methodName)
     {
@@ -17,16 +18,19 @@ public class FeedFireCommand : ICommand
     public void Execute()
     {
         Debug.Log("Execute of FeedFireCommand");
+        previousFireState = fire.GetFireState();
         fire.FeedFire();
     }
 
     public void Undo()
     {
-        //implement me!
+        if (previousFireState == Fire.FireState.Big) fire.Extinguish();
+        else if (previousFireState == Fire.FireState.BigF) fire.FeedFire();
+        else if (previousFireState == Fire.FireState.UnlitF) fire.FeedFire();
     }
 
     public void Redo()
     {
-        //implement me!
+        Execute();
     }
 }
