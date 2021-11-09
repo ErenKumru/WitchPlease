@@ -36,6 +36,16 @@ public class InputHandler : MonoBehaviour
             Fire fire = FindObjectOfType<Fire>();
             return new ExtinguishCommand(fire, "Extinguish");
         }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            Wood wood = FindObjectOfType<Wood>();
+            return new WoodCommand(wood);
+        }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            IceMagic iceMagic= FindObjectOfType<IceMagic>();
+            return new IceMagicCommand(iceMagic);
+        }
 
         return null;
     }
