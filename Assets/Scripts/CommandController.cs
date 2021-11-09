@@ -31,6 +31,6 @@ public class CommandController : MonoBehaviour
     private void StartExecution()
     {
         Debug.Log("StartExecution");
-        potionMaker.ExecuteCommand();
+        StartCoroutine(potionMaker.ExecuteCommand());
     }
 }
