@@ -50,13 +50,6 @@ public class InputHandler : MonoBehaviour
             return new CandlesChangeColorCommand(candle);
         }
 
-       //undo :(
-        else if (Input.GetKeyDown(KeyCode.V))
-        {
-            //Debug.log("hey");
-            Candle candle= FindObjectOfType<Candle>();
-            return new CandlesChangeColorCommand(candle);
-        }
 
         return null;
     }
