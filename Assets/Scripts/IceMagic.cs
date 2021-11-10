@@ -5,6 +5,7 @@ using UnityEngine;
 public class IceMagic : MonoBehaviour
 {
     [SerializeField] private GameObject iceMagic;
+    [SerializeField] private GameObject ice;
 
     public void MakeIceMagic() //IEnumerator
     {
@@ -12,14 +13,22 @@ public class IceMagic : MonoBehaviour
         if (!iceMagic.activeSelf)
         {
             iceMagic.SetActive(true);
-            Debug.Log("Make Ice Magic is true");
-            //yield return new WaitForSeconds(4);
-            //yield return new WaitForSeconds(5);
-            //Debug.Log("Make Ice Magic wait ended");
-            //iceMagic.SetActive(false);
-            //Debug.Log("Make Ice Magic is false");
-            ; 
-            
+            ice.SetActive(true);
+            {
+                StartCoroutine(RemoveAfterSeconds(3, iceMagic));
+            }
+ 
+            IEnumerator RemoveAfterSeconds(int seconds, GameObject obj)
+            {
+                yield return new WaitForSeconds(seconds);
+                obj.SetActive(false);
+            }
+
         }
+    }
+
+    public void RemoveMagic()
+    {
+        ice.SetActive(false);
     }
 }

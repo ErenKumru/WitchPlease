@@ -19,11 +19,13 @@ public class IceMagicCommand : ICommand
 
     public void Undo()
     {
-        
+        Debug.Log("Undo Ice Magic Command");
+        iceMagic.RemoveMagic();
     }
 
     public void Redo()
     {
-        
+        Debug.Log("Redo Ice Magic Command");
+        iceMagic.MakeIceMagic();
     }
 }

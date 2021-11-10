@@ -20,7 +20,7 @@ public class WoodCommand : ICommand
     public void Undo()
     {
         Debug.Log("Undo Wood Command");
-        //wood.RemoveWood();
+        wood.RemoveWood();
     }
 
     public void Redo()

@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Wood : MonoBehaviour
 {
-    [SerializeField] private GameObject wood_A;
-
+    [SerializeField] private GameObject wood;
+    private Vector3 woodPosition;
 
     public void AddWood()
     {
         Debug.Log("AddWood is called");
-        wood_A.transform.position = new Vector3(0, 0, 0);
+        woodPosition = wood.transform.position;
+        wood.transform.position = new Vector3(-0.2f, -0.3f, 0);
+        //wood.transform.Rotate(0, 10, 0);
     }
 
     public void RemoveWood()
     {
         Debug.Log("RemoveWood is called");
-        wood_A.transform.position = new Vector3(0, 0, 2);
+        wood.transform.position = woodPosition;
+        //wood.transform.Rotate(0, -10, 0);
     }
 }
