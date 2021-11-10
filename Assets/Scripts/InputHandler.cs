@@ -13,6 +13,8 @@ public class InputHandler : MonoBehaviour
     * Instantiate/Create the Concrete Complex Command object/class with passing the Reciever and Parameter into the constructor that calls/holds the actual operation
     */
 
+    private PotionMaker potionMaker;
+
     public ICommand HandleInput()
     {
         if(Input.GetKeyDown(KeyCode.P))     //PourCommand
@@ -36,7 +38,30 @@ public class InputHandler : MonoBehaviour
             Fire fire = FindObjectOfType<Fire>();
             return new ExtinguishCommand(fire, "Extinguish");
         }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            Wood wood = FindObjectOfType<Wood>();
+            return new WoodCommand(wood);
+        }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            IceMagic iceMagic= FindObjectOfType<IceMagic>();
+            return new IceMagicCommand(iceMagic);
+        }
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {
+            potionMaker.Undo();
+        }
+        else if (Input.GetKeyDown(KeyCode.Y))
+        {
+            potionMaker.Redo();
+        }
 
         return null;
+    }
+
+    public void setPotionMaker(PotionMaker potionMaker)
+    {
+        this.potionMaker = potionMaker;
     }
 }
