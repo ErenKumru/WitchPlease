@@ -18,7 +18,7 @@ private Candle candles;
 
     public void Undo()
     {
-        Debug.Log("Candles are fired");
+        Debug.Log("Candles are undo");
         candles.undoChangeColor();
     }
 
