@@ -37,6 +37,13 @@ public class InputHandler : MonoBehaviour
             return new ExtinguishCommand(fire, "Extinguish");
         }
 
+          else if (Input.GetKeyDown(KeyCode.C))
+        {
+            //Debug.log("hey");
+            Candle candle= FindObjectOfType<Candle>();
+            return new CandlesCommand(candle);
+        }
+
         return null;
     }
 }
