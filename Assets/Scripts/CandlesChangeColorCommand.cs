@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CandlesCommand : ICommand{
+public class CandlesChangeColorCommand : ICommand{
 private Candle candles;
 
-    public CandlesCommand(Candle candles)
+    public CandlesChangeColorCommand(Candle candles)
     {
         this.candles = candles;
     }
@@ -13,18 +13,18 @@ private Candle candles;
     public void Execute()
     {
         Debug.Log("Candles are fired");
-        candles.fireOrBlowCandle();
+        candles.changeColor();
     }
 
     public void Undo()
     {
         Debug.Log("Candles are fired");
-        candles.fireOrBlowCandle();
+        candles.undoChangeColor();
     }
 
     public void Redo()
     {
         Debug.Log("Candles are fired");
-        candles.fireOrBlowCandle();
+        candles.changeColor();
     }
 }

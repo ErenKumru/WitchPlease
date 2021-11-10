@@ -41,7 +41,21 @@ public class InputHandler : MonoBehaviour
         {
             //Debug.log("hey");
             Candle candle= FindObjectOfType<Candle>();
-            return new CandlesCommand(candle);
+            return new CandlesBlowCommand(candle);
+        }
+        else if (Input.GetKeyDown(KeyCode.N))
+        {
+            //Debug.log("hey");
+            Candle candle= FindObjectOfType<Candle>();
+            return new CandlesChangeColorCommand(candle);
+        }
+
+       //undo :(
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            //Debug.log("hey");
+            Candle candle= FindObjectOfType<Candle>();
+            return new CandlesChangeColorCommand(candle);
         }
 
         return null;
