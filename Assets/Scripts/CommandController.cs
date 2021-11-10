@@ -13,6 +13,7 @@ public class CommandController : MonoBehaviour
     private void Awake()
     {
         inputHandler = FindObjectOfType<InputHandler>();    //finds the object with the given type (InputHandler) in the scene/hierarchy
+        inputHandler.setPotionMaker(potionMaker);
     }
 
     private void Update()

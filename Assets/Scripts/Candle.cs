@@ -74,12 +74,10 @@ public void fireOrBlowCandle() //IEnumerator
 
     public void undoChangeColor(){
 
+        Debug.Log(candles1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("green_flame"));
+
         if (candles1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("red_flame")){
-            candles1.GetComponent<Animator>().SetBool("execute_1",false);
-            candles2.GetComponent<Animator>().SetBool("execute_1",false);
-            candles3.GetComponent<Animator>().SetBool("execute_1",false);
-            candles4.GetComponent<Animator>().SetBool("execute_1",false);
-            candles5.GetComponent<Animator>().SetBool("execute_1",false);
+           
 
               /////////////7///777/7/
             candles1.GetComponent<Animator>().SetBool("undo_1",true);
@@ -90,11 +88,7 @@ public void fireOrBlowCandle() //IEnumerator
           
         }
         else if (candles1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("green_flame")){
-            candles1.GetComponent<Animator>().SetBool("execute_2",false);
-            candles2.GetComponent<Animator>().SetBool("execute_2",false);
-            candles3.GetComponent<Animator>().SetBool("execute_2",false);
-            candles4.GetComponent<Animator>().SetBool("execute_2",false);
-            candles5.GetComponent<Animator>().SetBool("execute_2",false);
+           
 
             /////////////7///777/7/
             candles1.GetComponent<Animator>().SetBool("undo_2",true);
