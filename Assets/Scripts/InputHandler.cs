@@ -60,6 +60,11 @@ public class InputHandler : MonoBehaviour
             Candle candle= FindObjectOfType<Candle>();
             return new CandlesChangeColorCommand(candle);
         }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            Dragon dragon = FindObjectOfType<Dragon>();
+            return new DragonSummonCommand(dragon);
+        }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
             potionMaker.Undo();
