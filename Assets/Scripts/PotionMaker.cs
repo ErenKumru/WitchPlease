@@ -24,13 +24,14 @@ public class PotionMaker
     }
 
     // execute commands
-    public void ExecuteCommand()
+    public IEnumerator ExecuteCommand()
     {
         while (commands.Count > 0)
 		{
 			ICommand currentCommand = commands.Dequeue();
     		currentCommand.Execute();
 			undo.Push(currentCommand);
+            yield return new WaitForSeconds(2f);    //wait for certain amount of time (2f = 2 seconds) before executing the next command
 		}       
     }
 	
@@ -46,6 +47,7 @@ public class PotionMaker
     public void Redo()
     {      
         ICommand currentCommand = redo.Pop();
+        undo.Push(currentCommand);
 		currentCommand.Redo();
     }
 }
