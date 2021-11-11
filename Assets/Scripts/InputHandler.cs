@@ -48,6 +48,18 @@ public class InputHandler : MonoBehaviour
             IceMagic iceMagic= FindObjectOfType<IceMagic>();
             return new IceMagicCommand(iceMagic);
         }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            //Debug.log("hey");
+            Candle candle= FindObjectOfType<Candle>();
+            return new CandlesBlowCommand(candle);
+        }
+        else if (Input.GetKeyDown(KeyCode.N))
+        {
+            //Debug.log("hey");
+            Candle candle= FindObjectOfType<Candle>();
+            return new CandlesChangeColorCommand(candle);
+        }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
             potionMaker.Undo();
@@ -56,6 +68,9 @@ public class InputHandler : MonoBehaviour
         {
             potionMaker.Redo();
         }
+
+          
+
 
         return null;
     }
