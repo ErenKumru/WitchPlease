@@ -3,17 +3,34 @@ using UnityEngine;
 
 public class Dragon : MonoBehaviour
 {
-    [SerializeField] private GameObject dragon;
+    [SerializeField] private GameObject waitingDragon;
+    [SerializeField] private GameObject movingDragon;
 
     public void Summon()
     {
         Debug.Log("Summonning the dragon");
-        dragon.SetActive(true);
+        waitingDragon.SetActive(true);
     }
 
     public void GoAway()
     {
-        dragon.SetActive(false);
+        waitingDragon.SetActive(false);
+        movingDragon.SetActive(false);
+    }
+
+    public void Pet()
+    {
+        if (waitingDragon.activeSelf)
+        {
+            waitingDragon.SetActive(false);
+            movingDragon.SetActive(true);
+        }
+    }
+
+    public void Stop()
+    {
+        movingDragon.SetActive(false);
+        waitingDragon.SetActive(true);
     }
     
 }

@@ -60,10 +60,20 @@ public class InputHandler : MonoBehaviour
             Candle candle= FindObjectOfType<Candle>();
             return new CandlesChangeColorCommand(candle);
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             Dragon dragon = FindObjectOfType<Dragon>();
             return new DragonSummonCommand(dragon);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            Dragon dragon = FindObjectOfType<Dragon>();
+            return new DragonPetCommand(dragon);
+        }
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
+            Pumpkin pumpkin = FindObjectOfType<Pumpkin>();
+            return new PumpkinSmashCommand(pumpkin);
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
