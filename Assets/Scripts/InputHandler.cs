@@ -17,7 +17,15 @@ public class InputHandler : MonoBehaviour
 
     public ICommand HandleInput()
     {
-        if(Input.GetKeyDown(KeyCode.P))     //PourCommand
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            potionMaker.Undo();
+        }
+        else if (Input.GetKeyDown(KeyCode.Y))
+        {
+            potionMaker.Redo();
+        }
+        else if (Input.GetKeyDown(KeyCode.P))     //PourCommand
         {
             Debug.Log("Input given for liquid and new LC created");
             Liquid liquid = FindObjectOfType<Liquid>(); //subject to change, might need to find a more suitable way
@@ -48,19 +56,19 @@ public class InputHandler : MonoBehaviour
             IceMagic iceMagic= FindObjectOfType<IceMagic>();
             return new IceMagicCommand(iceMagic);
         }
-        else if (Input.GetKeyDown(KeyCode.C))
+        else if (Input.GetKeyDown(KeyCode.B))
         {
             //Debug.log("hey");
             Candle candle= FindObjectOfType<Candle>();
             return new CandlesBlowCommand(candle);
         }
-        else if (Input.GetKeyDown(KeyCode.N))
+        else if (Input.GetKeyDown(KeyCode.C))
         {
             //Debug.log("hey");
             Candle candle= FindObjectOfType<Candle>();
             return new CandlesChangeColorCommand(candle);
         }
-        else if (Input.GetKeyDown(KeyCode.V)){
+        else if (Input.GetKeyDown(KeyCode.A)){
             Cage cage = FindObjectOfType<Cage>();
             return new CageCommand(cage);
         }
@@ -74,12 +82,12 @@ public class InputHandler : MonoBehaviour
             Dragon dragon = FindObjectOfType<Dragon>();
             return new DragonPetCommand(dragon);
         }
-        else if (Input.GetKeyDown(KeyCode.G))
+        else if (Input.GetKeyDown(KeyCode.U))
         {
             Pumpkin pumpkin = FindObjectOfType<Pumpkin>();
             return new PumpkinSmashCommand(pumpkin);
         }
-        else if (Input.GetKeyDown(KeyCode.B))
+        else if (Input.GetKeyDown(KeyCode.O))
         {
             Book book = FindObjectOfType<Book>();
             return new OpenBookCommand(book);
@@ -89,25 +97,17 @@ public class InputHandler : MonoBehaviour
             Book book = FindObjectOfType<Book>();
             return new CloseBookCommand(book);
         }
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {
-            potionMaker.Undo();
-        }
-        else if (Input.GetKeyDown(KeyCode.Y))
-        {
-            potionMaker.Redo();
-        }
         else if(Input.GetKeyDown(KeyCode.G))    //GrowCommand
         {
             Plant plant = FindObjectOfType<Plant>(); 
             return new GrowCommand(plant, "GrowCommand");
         }
-        else if(Input.GetKeyDown(KeyCode.S))
+        else if(Input.GetKeyDown(KeyCode.R))
         {
             Plant plant = FindObjectOfType<Plant>(); 
             return new GrindCommand(plant, "GrindCommand"); 
         }
-        else if(Input.GetKeyDown(KeyCode.B))
+        else if(Input.GetKeyDown(KeyCode.K))
         {
             Plant plant = FindObjectOfType<Plant>(); 
             return new ChopCommend(plant, "ChopCommand"); 
