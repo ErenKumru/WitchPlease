@@ -6,6 +6,7 @@ public class ExtinguishCommand : ICommand
 {
     private Fire fire;
     private string methodName;
+    private Fire.FireState previousFireState;
 
     public ExtinguishCommand(Fire fire, string methodName)
     {
@@ -17,16 +18,19 @@ public class ExtinguishCommand : ICommand
     public void Execute()
     {
         Debug.Log("Execute of ExtinguishCommand");
+        previousFireState = fire.GetFireState();
         fire.Extinguish();
     }
 
     public void Undo()
     {
-        //implement me!
+        if (previousFireState == Fire.FireState.Small) fire.FeedFire();
+        else if (previousFireState == Fire.FireState.Unlit) fire.Light();
+        else if (previousFireState == Fire.FireState.UnlitE) fire.Extinguish();
     }
 
     public void Redo()
     {
-        //implement me!
+        Execute();
     }
 }
