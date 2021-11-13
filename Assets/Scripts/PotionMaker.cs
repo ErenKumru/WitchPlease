@@ -47,6 +47,7 @@ public class PotionMaker
     public void Redo()
     {      
         ICommand currentCommand = redo.Pop();
+        undo.Push(currentCommand);
 		currentCommand.Redo();
     }
 }
