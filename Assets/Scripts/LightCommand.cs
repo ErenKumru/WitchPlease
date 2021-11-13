@@ -6,6 +6,7 @@ public class LightCommand : ICommand
 {
     private Fire fire;
     private string methodName;
+    private Fire.FireState previousFireState;
 
     public LightCommand(Fire fire, string methodName)
     {
@@ -17,16 +18,17 @@ public class LightCommand : ICommand
     public void Execute()
     {
         Debug.Log("Execute of LightCommand");
+        previousFireState = fire.GetFireState();
         fire.Light();
     }
 
     public void Undo()
     {
-        //implement me!
+        if (previousFireState == Fire.FireState.Lit) fire.Extinguish();
     }
 
     public void Redo()
     {
-        //implement me!
+        Execute();
     }
 }
