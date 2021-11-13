@@ -60,6 +60,10 @@ public class InputHandler : MonoBehaviour
             Candle candle= FindObjectOfType<Candle>();
             return new CandlesChangeColorCommand(candle);
         }
+        else if (Input.GetKeyDown(KeyCode.V)){
+            Cage cage = FindObjectOfType<Cage>();
+            return new CageCommand(cage);
+        }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             Dragon dragon = FindObjectOfType<Dragon>();
