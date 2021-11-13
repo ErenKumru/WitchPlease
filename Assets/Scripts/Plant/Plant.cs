@@ -40,6 +40,8 @@ public class Plant : MonoBehaviour
     public void VisiblePlant(){
         this.plantObj.transform.localScale = new Vector3(currentScale, currentScale, currentScale);
         this.plantObj.transform.position = defaultPlace.position;
+        this.spicyObj.transform.position = defaultPlace.position;
+        this.leafObj.transform.position = defaultPlace.position;
         this.plantObj.enabled = true;
         this.spicyObj.enabled = false;
         this.leafObj.enabled = false;
