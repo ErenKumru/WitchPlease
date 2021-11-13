@@ -74,6 +74,7 @@ public class InputHandler : MonoBehaviour
         {
             Pumpkin pumpkin = FindObjectOfType<Pumpkin>();
             return new PumpkinSmashCommand(pumpkin);
+        }
         else if (Input.GetKeyDown(KeyCode.B))
         {
             Book book = FindObjectOfType<Book>();
@@ -82,7 +83,7 @@ public class InputHandler : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.V))
         {
             Book book = FindObjectOfType<Book>();
-            return new CloseBookCommand(book);  >
+            return new CloseBookCommand(book);
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
