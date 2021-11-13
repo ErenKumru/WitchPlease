@@ -11,8 +11,7 @@ public class Wood : MonoBehaviour
     {
         Debug.Log("AddWood is called");
         woodPosition = wood.transform.position;
-        wood.transform.position = new Vector3(-0.2f, -0.3f, 0);
-        //wood.transform.Rotate(0, 10, 0);
+        wood.transform.position = new Vector3(-0.2f, -0.5f, -2.1f);
     }
 
     public void RemoveWood()

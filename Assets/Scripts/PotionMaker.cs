@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
     //Invoker/Sender class.
@@ -37,17 +38,32 @@ public class PotionMaker
 	
 	// undo command
     public void Undo()
-    {      
-        ICommand currentCommand = undo.Pop();
-		currentCommand.Undo();
-		redo.Push(currentCommand);    
+    {
+	    if (undo.Count != 0)
+	    {
+		    ICommand currentCommand = undo.Pop();
+		    currentCommand.Undo();
+		    redo.Push(currentCommand); 
+	    }
+	    else
+	    {
+		    Debug.Log("Undo Stack is empty.");
+	    }
     }
     
 	// redo command
     public void Redo()
-    {      
-        ICommand currentCommand = redo.Pop();
-        undo.Push(currentCommand);
-		currentCommand.Redo();
+    {
+	    if (redo.Count != 0)
+	    {
+		    ICommand currentCommand = redo.Pop();
+		    undo.Push(currentCommand);
+		    currentCommand.Redo();
+	    }
+	    else
+	    {
+		    Debug.Log("Redo Stack is empty.");
+	    }
+        
     }
 }
