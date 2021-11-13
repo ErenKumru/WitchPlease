@@ -32,7 +32,13 @@ private Cage cage;
     }
 
     public void Redo(){
-       // Debug.log("CANNOT REDO");
+       Debug.Log("Candles are redoned");
+        if (cage.transform.localPosition.x != -0.56f){
+            cage.OpenCage();
+        }
+        else{
+            cage.CloseCage();
+        }
     }
 
 }
