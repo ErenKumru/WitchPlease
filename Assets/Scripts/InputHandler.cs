@@ -74,6 +74,15 @@ public class InputHandler : MonoBehaviour
         {
             Pumpkin pumpkin = FindObjectOfType<Pumpkin>();
             return new PumpkinSmashCommand(pumpkin);
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+            Book book = FindObjectOfType<Book>();
+            return new OpenBookCommand(book);
+        }
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            Book book = FindObjectOfType<Book>();
+            return new CloseBookCommand(book);  >
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -83,9 +92,21 @@ public class InputHandler : MonoBehaviour
         {
             potionMaker.Redo();
         }
-
-          
-
+        else if(Input.GetKeyDown(KeyCode.G))    //GrowCommand
+        {
+            Plant plant = FindObjectOfType<Plant>(); 
+            return new GrowCommand(plant, "GrowCommand");
+        }
+        else if(Input.GetKeyDown(KeyCode.S))
+        {
+            Plant plant = FindObjectOfType<Plant>(); 
+            return new GrindCommand(plant, "GrindCommand"); 
+        }
+        else if(Input.GetKeyDown(KeyCode.B))
+        {
+            Plant plant = FindObjectOfType<Plant>(); 
+            return new ChopCommend(plant, "ChopCommand"); 
+        }
 
         return null;
     }
