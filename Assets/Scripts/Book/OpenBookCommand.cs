@@ -5,10 +5,17 @@ using UnityEngine;
 public class OpenBookCommand : ICommand
 {
     private Book book;
+    private string name;
 
-    public OpenBookCommand(Book book)
+    public OpenBookCommand(Book book, string name)
     {
         this.book = book;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     public void Execute()

@@ -5,10 +5,17 @@ using UnityEngine;
 public class WoodCommand : ICommand
 {
     private Wood wood;
+    private string name;
 
-    public WoodCommand(Wood wood)
+    public WoodCommand(Wood wood, string name)
     {
         this.wood = wood;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     public void Execute()

@@ -5,13 +5,18 @@ using UnityEngine;
 public class ExtinguishCommand : ICommand
 {
     private Fire fire;
-    private string methodName;
+    private string name;
     private Fire.FireState previousFireState;
 
-    public ExtinguishCommand(Fire fire, string methodName)
+    public ExtinguishCommand(Fire fire, string name)
     {
         this.fire = fire;
-        this.methodName = methodName;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     //methods

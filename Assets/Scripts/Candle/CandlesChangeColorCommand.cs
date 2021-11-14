@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class CandlesChangeColorCommand : ICommand{
 private Candle candles;
+    private string name;
 
-    public CandlesChangeColorCommand(Candle candles)
+    public CandlesChangeColorCommand(Candle candles, string name)
     {
         this.candles = candles;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     public void Execute()

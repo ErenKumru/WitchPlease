@@ -5,13 +5,18 @@ using UnityEngine;
 public class FeedFireCommand : ICommand
 {
     private Fire fire;
-    private string methodName;
+    private string name;
     private Fire.FireState previousFireState;
 
-    public FeedFireCommand(Fire fire, string methodName)
+    public FeedFireCommand(Fire fire, string name)
     {
         this.fire = fire;
-        this.methodName = methodName;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     //methods

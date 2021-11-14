@@ -7,13 +7,18 @@ public class ChopCommend : ICommand
 
     private Plant plant;
     private Renderer plantObj;
-    private string methodName;
+    private string name;
     
 
-    public ChopCommend(Plant plant, string methodName)
+    public ChopCommend(Plant plant, string name)
     {
         this.plant = plant;
-        this.methodName = methodName;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     //methods

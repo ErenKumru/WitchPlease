@@ -5,10 +5,17 @@ using UnityEngine;
 public class IceMagicCommand : ICommand
 {
     private IceMagic iceMagic;
+    private string name;
 
-    public IceMagicCommand(IceMagic iceMagic)
+    public IceMagicCommand(IceMagic iceMagic, string name)
     {
         this.iceMagic = iceMagic;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     public void Execute()

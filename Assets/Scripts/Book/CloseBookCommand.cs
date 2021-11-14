@@ -5,10 +5,17 @@ using UnityEngine;
 public class CloseBookCommand : ICommand
 {
     private Book book;
+    private string name;
 
-    public CloseBookCommand(Book book)
+    public CloseBookCommand(Book book, string name)
     {
         this.book = book;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     public void Execute()
