@@ -25,12 +25,6 @@ public class InputHandler : MonoBehaviour
         {
             potionMaker.Redo();
         }
-        else if (Input.GetKeyDown(KeyCode.P))     //PourCommand
-        {
-            Debug.Log("Input given for liquid and new LC created");
-            Liquid liquid = FindObjectOfType<Liquid>(); //subject to change, might need to find a more suitable way
-            return new PourCommand(liquid, "Pour");   //string "Pour" is given for UI element
-        }
         else if(Input.GetKeyDown(KeyCode.F))    //FeedFireCommand
         {
             Fire fire = FindObjectOfType<Fire>();
