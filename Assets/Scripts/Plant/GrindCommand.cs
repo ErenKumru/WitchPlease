@@ -6,12 +6,17 @@ public class GrindCommand : ICommand
 {
 
     private Plant plant;
-    private string methodName;
+    private string name;
 
-    public GrindCommand(Plant plant, string methodName)
+    public GrindCommand(Plant plant, string name)
     {
         this.plant = plant;
-        this.methodName = methodName;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     //methods

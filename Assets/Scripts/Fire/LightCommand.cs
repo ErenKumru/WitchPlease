@@ -5,13 +5,18 @@ using UnityEngine;
 public class LightCommand : ICommand
 {
     private Fire fire;
-    private string methodName;
+    private string name;
     private Fire.FireState previousFireState;
 
-    public LightCommand(Fire fire, string methodName)
+    public LightCommand(Fire fire, string name)
     {
         this.fire = fire;
-        this.methodName = methodName;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     //methods

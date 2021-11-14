@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class CageCommand: ICommand{
 private Cage cage;
+    private string name;
 
-    public CageCommand(Cage cage)
+    public CageCommand(Cage cage, string name)
     {
         this.cage = cage;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     public void Execute()

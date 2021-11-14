@@ -7,14 +7,19 @@ public class GrowCommand : ICommand
 
     private Plant plant;
     Renderer plantObj;
-    private string methodName;
+    private string name;
     float old;
 
-    public GrowCommand(Plant plant, string methodName)
+    public GrowCommand(Plant plant, string name)
     {
         this.plant = plant;
         plantObj = plant.GetPlantObj();
-        this.methodName = methodName;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     public void Execute()

@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-    //Main class/loader/client
+//Main class/loader/client
 public class CommandController : MonoBehaviour
 {
-    //coroutine to execute, UI etc.
-
+    private TMP_Text textField;
     private InputHandler inputHandler;
-    private PotionMaker potionMaker = new PotionMaker();
+    private Magic magic = new Magic();
 
     private void Awake()
     {
-        inputHandler = FindObjectOfType<InputHandler>();    //finds the object with the given type (InputHandler) in the scene/hierarchy
-        inputHandler.setPotionMaker(potionMaker);
+        inputHandler = FindObjectOfType<InputHandler>();
+        textField = FindObjectOfType<TMP_Text>();
+        inputHandler.setMagic(magic, textField);
     }
 
     private void Update()
@@ -26,12 +27,12 @@ public class CommandController : MonoBehaviour
     {
         Debug.Log("Add command called");
         ICommand newCommand = inputHandler.HandleInput();
-        if (newCommand is ICommand && newCommand != null) potionMaker.SetCommand(newCommand);   //PotionMaker potionMaker = new PotionMaker(new ComplexCommand(reciever, methodName));
+        if (newCommand is ICommand && newCommand != null) magic.SetCommand(newCommand);
     }
 
     private void StartExecution()
     {
         Debug.Log("StartExecution");
-        StartCoroutine(potionMaker.ExecuteCommand());
+        StartCoroutine(magic.ExecuteCommand());
     }
 }

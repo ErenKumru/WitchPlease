@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class CandlesBlowCommand : ICommand{
 private Candle candles;
-
-    public CandlesBlowCommand(Candle candles)
+    private string name;
+    public CandlesBlowCommand(Candle candles, string name)
     {
         this.candles = candles;
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     public void Execute()
