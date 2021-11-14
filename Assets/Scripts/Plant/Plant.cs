@@ -47,6 +47,7 @@ public class Plant : MonoBehaviour
         this.spicyObj.enabled = false;
         this.leafObj.enabled = false;
     }
+
     public void Grind()
     {
         this.executed = true;
@@ -68,6 +69,17 @@ public class Plant : MonoBehaviour
         while (elapsedTime < time && startingPos != finalPos)
         {
             transform.localPosition = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        elapsedTime = 0;
+        startingPos  = transform.position;
+        finalPos.z = startingPos.y - 0.5f;
+
+        while (elapsedTime < time && startingPos != finalPos)
+        {
+            transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
