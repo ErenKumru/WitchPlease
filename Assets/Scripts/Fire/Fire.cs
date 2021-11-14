@@ -7,14 +7,14 @@ public class Fire : MonoBehaviour
     [SerializeField] private GameObject smallFire;
     [SerializeField] private GameObject bigFire;
 
-    private FireState fireState;
+    private FireState fireState = FireState.Unlit;
 
     public void Light()
     {
         Debug.Log("Light is called");
         smallFire.SetActive(true);
         bigFire.SetActive(false);
-        fireState = FireState.Lit;      //undo: call Extinguish
+        fireState = FireState.Light;      //undo: call Extinguish
     }
 
     public void Extinguish()
@@ -31,7 +31,7 @@ public class Fire : MonoBehaviour
             smallFire.SetActive(false);
             fireState = FireState.Unlit;   //undo: call Light
         }
-        else fireState = FireState.UnlitE;   //undo: call Extinguish
+        else fireState = FireState.Unlit;   //undo: call Extinguish 
     }
 
     public void FeedFire()
@@ -44,8 +44,8 @@ public class Fire : MonoBehaviour
             smallFire.SetActive(false);
             fireState = FireState.Big;  //undo: call Extinguish
         }
-        else if (bigFire.activeSelf) fireState = FireState.BigF;    //undo: call FeedFire
-        else fireState = FireState.UnlitF;      //undo: call FeedFire
+        else if (bigFire.activeSelf) fireState = FireState.Big;    //undo: call FeedFire
+        else fireState = FireState.Unlit;      //undo: call FeedFire
     }
 
     public FireState GetFireState()
@@ -55,12 +55,9 @@ public class Fire : MonoBehaviour
 
     public enum FireState
     {
-        UnlitE,
-        UnlitF,
         Unlit,
-        Lit,
+        Light,
         Small,
-        BigF,
-        Big,
+        Big
     }
 }

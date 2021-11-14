@@ -24,9 +24,10 @@ public class ExtinguishCommand : ICommand
 
     public void Undo()
     {
-        if (previousFireState == Fire.FireState.Small) fire.FeedFire();
-        else if (previousFireState == Fire.FireState.Unlit) fire.Light();
-        else if (previousFireState == Fire.FireState.UnlitE) fire.Extinguish();
+        if (previousFireState == Fire.FireState.Light) fire.Light();
+        else if (previousFireState == Fire.FireState.Small) fire.Extinguish();
+        else if (previousFireState == Fire.FireState.Unlit) fire.Extinguish();
+        else if (previousFireState == Fire.FireState.Big) fire.FeedFire();
     }
 
     public void Redo()
