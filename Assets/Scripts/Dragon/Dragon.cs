@@ -5,17 +5,29 @@ public class Dragon : MonoBehaviour
 {
     [SerializeField] private GameObject waitingDragon;
     [SerializeField] private GameObject movingDragon;
+    private bool isMoving;
 
     public void Summon()
     {
         Debug.Log("Summonning the dragon");
-        waitingDragon.SetActive(true);
+        if (!(waitingDragon.activeSelf || movingDragon.activeSelf))
+        {
+            waitingDragon.SetActive(true);
+        }
+        
     }
 
     public void GoAway()
     {
-        waitingDragon.SetActive(false);
-        movingDragon.SetActive(false);
+        if ((!movingDragon.activeSelf) && waitingDragon.activeSelf)
+        {
+            waitingDragon.SetActive(false);
+            movingDragon.SetActive(false);
+        }
+        else if (isMoving)
+        {
+            Stop();
+        }
     }
 
     public void Pet()
@@ -24,13 +36,22 @@ public class Dragon : MonoBehaviour
         {
             waitingDragon.SetActive(false);
             movingDragon.SetActive(true);
+            isMoving = true;
         }
     }
 
     public void Stop()
     {
-        movingDragon.SetActive(false);
-        waitingDragon.SetActive(true);
+        if (movingDragon.activeSelf && isMoving) 
+        {
+            movingDragon.SetActive(false);
+            waitingDragon.SetActive(true);
+            isMoving = false;
+        }
+        else if (!isMoving)
+        {
+             GoAway();
+        }
     }
     
 }
