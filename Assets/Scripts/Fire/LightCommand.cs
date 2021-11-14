@@ -24,7 +24,9 @@ public class LightCommand : ICommand
 
     public void Undo()
     {
-        if (previousFireState == Fire.FireState.Lit) fire.Extinguish();
+        if (previousFireState == Fire.FireState.Light) fire.Light();
+        else if (previousFireState == Fire.FireState.Unlit) fire.Extinguish();
+       
     }
 
     public void Redo()

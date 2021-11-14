@@ -24,9 +24,12 @@ public class FeedFireCommand : ICommand
 
     public void Undo()
     {
-        if (previousFireState == Fire.FireState.Big) fire.Extinguish();
-        else if (previousFireState == Fire.FireState.BigF) fire.FeedFire();
-        else if (previousFireState == Fire.FireState.UnlitF) fire.FeedFire();
+        if (previousFireState == Fire.FireState.Light) fire.Light();
+        else if (previousFireState == Fire.FireState.Small) fire.Extinguish();
+        else if (previousFireState == Fire.FireState.Big) fire.FeedFire();
+        //if (previousFireState == Fire.FireState.Big) fire.Extinguish();
+        //else if (previousFireState == Fire.FireState.BigF) fire.FeedFire();
+        //else if (previousFireState == Fire.FireState.UnlitF) fire.FeedFire();
     }
 
     public void Redo()
