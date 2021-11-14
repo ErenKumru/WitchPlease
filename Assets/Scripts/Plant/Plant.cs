@@ -9,6 +9,7 @@ public class Plant : MonoBehaviour
     [SerializeField] private GameObject leaf; 
     [SerializeField]  private GameObject knife; //referancing knife is subject to change
     Coroutine myCR;
+    Coroutine myCR2;
     Renderer plantObj;
     Renderer spicyObj;
     Renderer leafObj;
@@ -53,20 +54,20 @@ public class Plant : MonoBehaviour
         this.plantObj.enabled = false;
         this.spicyObj.enabled = true;
 
-        myCR =  StartCoroutine (MoveToCauldron(this.spicyObj.transform)); 
+        myCR2 =  StartCoroutine (MoveToCauldron(this.spicyObj.transform)); 
         
     }
 
     private IEnumerator MoveToCauldron (Transform transform)
     {
-        Vector3 startingPos  = transform.position;
-        Vector3 finalPos = new Vector3(0, 0.80f, 0);
+        Vector3 startingPos  = transform.localPosition;
+        Vector3 finalPos = new Vector3(-0.35f, 0f, 1.37f);
         float time = 1f;
         float elapsedTime = 0; 
 
         while (elapsedTime < time && startingPos != finalPos)
         {
-            transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
+            transform.localPosition = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
