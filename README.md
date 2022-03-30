@@ -1,5 +1,5 @@
 # WitchPlease
-This project shows a way of using Command Pattern in Unity & Game Development field.
+This project shows a way of using Command Pattern in Unity & Game Development.
 
 Developed by [Eren Kumru](https://github.com/ErenKumru), [Nur Altıparmak](https://github.com/n6parmak), [Ece Kunduracıoğlu](https://github.com/ecekun), [Berra Nur Sarı](https://github.com/berranursari) & [Ece Korkmaz](https://github.com/ecexe) for Hacettepe University - BBM486 Design Patterns Class Term Project.
 
