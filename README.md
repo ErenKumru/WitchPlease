@@ -9,6 +9,6 @@ PowerPoint Format - [BBM 486 - Command Pattern - Witch Please!.pptx](https://git
 PDF Format - [BBM 486 - Command Pattern - Witch Please!.pdf](https://github.com/ErenKumru/WitchPlease/files/8381244/BBM.486.-.Command.Pattern.-.Witch.Please.pdf)
 
 ## Trailer
-https://www.youtube.com/watch?v=EthnD2rjWqs
+Youtube - https://www.youtube.com/watch?v=EthnD2rjWqs
 
 https://user-images.githubusercontent.com/44412775/160853871-3e6f6c7c-9626-40c9-bb03-98e0931dde75.mp4
